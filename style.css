@@ -1,0 +1,94 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+body {
+    margin: 5vh 35vw;
+    font-family: Ubuntu, Arial;
+    background: #f0f0f5;
+}
+
+.page-home {
+   
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 10px 20px;
+    height: 90vh;
+    width: 30vw;
+    border-radius: 50px;
+    background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
+    
+   }  
+
+
+.page-home .Name{
+     
+    text-align: center;
+    color: #f0f0f5;
+    text-decoration-color: paleturquoise;
+
+}
+
+
+.photo-perfil img {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+
+    align-content: center;
+        
+    padding: 10px;
+    border-radius: 30%;
+    background: linear-gradient(180deg, #29B6D1 0%, #00C7C7 100%);    
+}
+
+.Index {
+
+    margin: 30px 5px 15px 250px;
+
+}
+
+.Index a {
+    line-height: 25px;
+   
+    text-align: left;   
+    text-decoration-line: none;
+}
+
+
+.description {
+    line-height: 20px;
+    margin: 5px;
+    margin-top: 0px;
+    padding-top: 0;
+    text-align: center;
+    color: #f0f0f5;
+
+}
+.description p{
+    margin-top: 5px;
+}
+
+.list {
+    font-size: 18px;
+    margin: 0px 10%;
+    color: #f0f0f5;
+    font-style: italic;
+   
+}
+
+.list span {
+    font-weight: 900;
+    font-size: 20px;
+    
+}
+
+
+.li{
+       
+
+        text-decoration:  none;
+    }
+            
