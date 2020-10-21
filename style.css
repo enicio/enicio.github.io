@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     align-content: center;
-    padding: 10px 20px;
+    padding: 0;
     height: 100%;
     width: 30vw;
     border-radius: 50px;
@@ -48,7 +48,7 @@ body {
     line-height: 20px;
     margin-right: 5px;
     margin-top: 0px;
-    padding: 1px;
+    padding: 20px;
     text-align: justify;
     color: #f0f0f5;
 
@@ -121,6 +121,20 @@ body {
     color: #f0f0f5;
     text-decoration-line: none;
 
+}
+
+.base {
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    margin-top: 15px;
+    padding: 0px;
+    height:50px;
+    width: 30vw;
+    border-radius: 0 0  50px 50px;
+    background-color: orange;
 }
 
 .footer {
