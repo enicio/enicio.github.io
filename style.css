@@ -21,12 +21,27 @@ body {
    }  
 
 
-.page-home .Name{
+.page-home .Name{   
      
     text-align: center;
     color: #f0f0f5;
     text-decoration-color: paleturquoise;
 
+    padding: 0 0 15px 0;
+
+    margin-bottom: 15px;
+    height:60px;
+    width: 30vw;
+    border-radius: 50px 50px  0 0 ;
+    background-color: orange;
+
+}
+
+.page-home .Name a {
+    text-decoration: none;
+    color: #f0f0f5;
+    background-color: orange;
+   
 }
 
 
