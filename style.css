@@ -13,7 +13,7 @@ body {
     flex-direction: column;
     align-content: center;
     padding: 10px 20px;
-    height: 90vh;
+    height: 100%;
     width: 30vw;
     border-radius: 50px;
     background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
@@ -31,34 +31,47 @@ body {
 
 
 .photo-perfil img {
+    float: right;
+    margin-left: 10px;
 
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+       /*display: block;
+ margin-left: auto;
+    margin-right: auto;*/
     width: 35%;
-
-    align-content: center;
-        
+       
     padding: 10px;
     border-radius: 30%;
     background: linear-gradient(180deg, #29B6D1 0%, #00C7C7 100%);    
 }
 
-.Index {
-
-    margin: 30px 5px 15px 250px;
+.photo-perfil p {
+    line-height: 20px;
+    margin-right: 5px;
+    margin-top: 0px;
+    padding: 1px;
+    text-align: justify;
+    color: #f0f0f5;
 
 }
 
+.Index {
+
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+
 .Index a {
+    text-decoration: none;
+    color: rgb(2, 72, 77);
+    font-weight: 600;
     line-height: 25px;
-   
-    text-align: left;   
     text-decoration-line: none;
 }
 
 
 .description {
+    
     line-height: 20px;
     margin: 5px;
     margin-top: 0px;
@@ -68,12 +81,14 @@ body {
 
 }
 .description p{
+    float: left;
     margin-top: 5px;
 }
 
 .list {
+    margin-left: 15%;
+    margin-bottom: 0;
     font-size: 18px;
-    margin: 0px 10%;
     color: #f0f0f5;
     font-style: italic;
    
@@ -87,8 +102,50 @@ body {
 
 
 .li{
-       
+  
+    text-decoration:  none;
+}
 
-        text-decoration:  none;
-    }
-            
+.blogs h4{
+    margin-top: 0;
+    margin-left: 15%;
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: #f0f0f5;
+}
+
+.blogs a {
+    margin-top: 30px;
+    margin-left: 20% ;
+    margin-bottom: 30px;
+    color: #f0f0f5;
+    text-decoration-line: none;
+
+}
+
+.footer {
+    position: fixed;
+    bottom: 50px;
+    left: 30vw;
+    text-align: right;
+
+
+}
+
+.footer a {  
+        color: #29B6D1 ;
+        background-color: #29B6D1 ;
+        padding: 6px;
+        border-radius: 50%;     
+        text-decoration-line: none;
+
+        transition: 500ms;
+}
+
+.footer a:hover {
+    border-radius: 4px;
+    color: red;
+}
+      
+
+      
