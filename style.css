@@ -41,7 +41,7 @@ body {
        
     padding: 10px;
     border-radius: 30%;
-    background: linear-gradient(180deg, #29B6D1 0%, #00C7C7 100%);    
+    background: linear-gradient(180deg, #e99f3f 0%, #00C7C7 100%);    
 }
 
 .photo-perfil p {
@@ -86,12 +86,17 @@ body {
 }
 
 .list {
+    
     margin-left: 15%;
     margin-bottom: 0;
     font-size: 18px;
     color: #f0f0f5;
     font-style: italic;
    
+}
+
+.list h4 {
+    margin-top: 0;
 }
 
 .list span {
