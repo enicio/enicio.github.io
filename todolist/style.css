@@ -7,17 +7,23 @@
 	margin-bottom: 20px;
 	background-color: orange;
 	width: 300px;
-	padding: 10px;
+	padding: 8px;
 	border-radius: 20px;
 }
 
 input {
-	border-radius: 5px;
+	border-radius: 10px;
 }
 
 #inputs button {
 	margin-left: 20px;
+	border-radius: 50px;
 }
+
+ button {
+	margin-left: 20px;
+	border-radius: 50px;
+ }
 
 /* ol {
 	background-color: paleturquoise;
