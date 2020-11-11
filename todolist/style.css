@@ -1,0 +1,35 @@
+.completed {
+	text-decoration: line-through solid rgb( 0 , 0 , 0 );
+}
+
+#inputs {
+	display: flex;
+	margin-bottom: 20px;
+	background-color: orange;
+	width: 300px;
+	padding: 10px;
+	border-radius: 20px;
+}
+
+input {
+	border-radius: 5px;
+}
+
+#inputs button {
+	margin-left: 20px;
+}
+
+/* ol {
+	background-color: paleturquoise;
+	width: 30vw;
+
+} */
+
+ol li {
+	background-color: paleturquoise;
+	width: 25vw;
+	border-radius: 5px;
+	text-align: left;
+	padding: 2px;
+}
+
