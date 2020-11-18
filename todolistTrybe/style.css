@@ -1,0 +1,53 @@
+
+.title {
+    margin-top: 30px;
+    margin-left: 200px;
+}
+
+.progress {
+    width: 400px;
+    height: 15px;
+    margin-left: 90px;
+    margin-top: 10px;
+}
+
+
+details {
+    margin-left: 50px;
+    max-width: 900px;
+}
+
+.selected {
+    background-color:rgb(183, 250, 183);
+}
+
+details > summary {
+    font-size: medium;
+    padding: 4px;
+    width: 500px;
+    background-color: #f1efef;
+    box-shadow: 1px 1px 1px #dff1f0;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+
+
+li {
+    font-size: small;
+    max-width: 500px;
+    line-height: 25px;
+    background-color: rgb(238, 232, 232);
+    padding-left: 10px;
+    border-radius: 8px;
+}
+
+summary {
+    color:green;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
