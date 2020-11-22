@@ -37,7 +37,6 @@ body hr {
 .general-block {
   display: flex;
   justify-content: center;
-  /* margin-bottom: 50px; */
   margin: 0 50px 50px 50px;
 }
 
@@ -46,15 +45,15 @@ a {
   align-items: center;
   text-decoration: none;
   font-weight: 920;
-  font-size: x-large;
-  height: 18px;
-  width: 30px;
+  font-size: large;
+  height: 100%;
+  width: 5%;
   background-color: rgb(68, 238, 159);
   border-radius: 0 15px 15px 0;
-  padding: 1px;
-  margin-right: -10px;
+  padding-right: 2px;
+  margin-right: -20px;
   color: cadetblue;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .selected {
@@ -65,10 +64,10 @@ details > summary {
   font-size: medium;
   padding: 4px;
   width: 95%;
-  background-color: #f1efef;
+  background-color: #f8f4f4;
   box-shadow: 1px 1px 1px #dff1f0;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 li {
@@ -78,9 +77,11 @@ li {
   font-size: medium;
   max-width: 500px;
   line-height: 25px;
-  background-color: rgb(238, 232, 232);
+  background-color: rgb(248, 248, 248);
   padding-left: 10px;
   border-radius: 8px;
+  margin-bottom: 1px;
+  border-bottom: 1px solid rgb(41, 179, 6);
 }
 
 summary {
