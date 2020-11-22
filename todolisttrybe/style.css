@@ -11,6 +11,24 @@
     margin-top: 10px;
 }
 
+a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 920;
+    font-size: x-large;
+    height: 18px;
+    width: 30px;
+    background-color: rgb(68, 238, 159);
+    border-radius: 0 15px 15px 0;
+    padding: 1px;
+    margin-right: -10px;
+    color: cadetblue;
+    justify-content: flex-end;
+}
+/* a[href^="http"]::before {
+    content: "🔗";
+} */
 
 details {
     margin-left: 50px;
@@ -34,6 +52,9 @@ details > summary {
 
 
 li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: small;
     max-width: 500px;
     line-height: 25px;
