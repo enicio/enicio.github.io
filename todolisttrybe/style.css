@@ -94,3 +94,18 @@ summary {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100vw;
+  background-color: rgb(216, 211, 211);
+}
+
+.footer p {
+  color: rgb(78, 74, 74);
+  padding: 5px 10px;
+  font-size: small;
+}
+
