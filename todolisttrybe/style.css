@@ -63,6 +63,10 @@ a {
   background-color:rgb(183, 250, 183);
 }
 
+.mouseOver {
+  background-color:rgb(167, 167, 167);
+}
+
 details > summary {
   font-size: medium;
   padding: 4px;
@@ -108,4 +112,3 @@ summary {
   padding: 5px 10px;
   font-size: small;
 }
-

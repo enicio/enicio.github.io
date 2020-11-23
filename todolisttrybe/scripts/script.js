@@ -1,9 +1,7 @@
-let generalBlock = document.querySelectorAll('.general-block')
-let divContent = document.createElement('DIV')
-
+let generalBlock = document.querySelectorAll('.general-block');
+let divContent = document.createElement('DIV');
 
 for (index = 0; index < kombi.length - 1; index += 1) {
-
   generalBlock[0].appendChild(divContent).classList.add('contents');
   blocks = document.querySelectorAll('.contents')
   block = document.createElement('details')
@@ -15,8 +13,8 @@ for (index = 0; index < kombi.length - 1; index += 1) {
 
 //Adicionando os conteudos de cada bloco
 
-list = document.createElement('OL')
-document.querySelectorAll('details')[0].appendChild(list)
+list = document.createElement('OL');
+document.querySelectorAll('details')[0].appendChild(list);
 
 let nextDatails = 0;
 let childrenCount = 0;
@@ -34,26 +32,35 @@ for (let index = 0; index < kombiCarregada.length; index += 1) {
   linkToContent = document.createElement('a')
   CadaItem = document.createElement('LI')
   CadaItem.id = "conteudos"
-  document.querySelectorAll('details')[nextDatails].querySelector('ol')
-    .appendChild(CadaItem).innerText = kombiCarregada[index]
-  document.querySelectorAll('details')[nextDatails].querySelector('ol')
-    .children[childrenCount].appendChild(linkToContent).href = contentLinks[index]
-  document.querySelectorAll('details')[nextDatails].querySelector('ol')
-    .children[childrenCount].appendChild(linkToContent).innerText = '>'
-  document.querySelectorAll('details')[nextDatails].querySelector('ol')
-    .children[childrenCount].appendChild(linkToContent).target = '_blank'
+
+  const getOl = document.querySelectorAll('details')[nextDatails].querySelector('ol')
+
+  getOl.appendChild(CadaItem).innerText = kombiCarregada[index]
+  getOl.children[childrenCount].appendChild(linkToContent).href = contentLinks[index]
+  getOl.children[childrenCount].appendChild(linkToContent).innerText = '>'
+  getOl.children[childrenCount].appendChild(linkToContent).target = '_blank'
   childrenCount += 1;
 }
 
-let contents = document.querySelector('.contents')
-contents.addEventListener('click', changeBackground)
-
 let progresso = 0;
+let contents = document.querySelector('.contents')
 
-function changeBackground(e) {
+contents.addEventListener('click', function (e) {
   if (e.target.tagName == 'LI') {
     e.target.classList.toggle("selected")
   }
   progresso = document.getElementsByClassName('selected').length
   document.querySelector('progress').value = progresso
-}
+})
+
+contents.addEventListener('mouseover', function (e) {
+  if (e.target.tagName == 'LI') {
+    e.target.classList.add("mouseOver")
+  }
+})
+
+contents.addEventListener('mouseout', function (e) {
+  if (e.target.tagName == 'LI') {
+    e.target.classList.remove("mouseOver")
+  }
+})
