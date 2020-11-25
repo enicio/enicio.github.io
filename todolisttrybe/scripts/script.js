@@ -64,3 +64,21 @@ contents.addEventListener('mouseout', function (e) {
     e.target.classList.remove("mouseOver")
   }
 })
+
+let keyPressedOnSearch = document.getElementById('myInput')
+keyPressedOnSearch.addEventListener('keyup', function () {
+  let input = document.getElementById('myInput');
+  textToSearch = input.value.toUpperCase();
+
+  let blocks = document.querySelectorAll('details');
+
+  for (let index = 0; index < blocks.length; index += 1) {
+    let blocksToUppercase = blocks[index].innerText;
+    if (blocksToUppercase.toUpperCase().indexOf(textToSearch) > -1) {
+      blocks[index].style.display = ""
+    } else {
+      blocks[index].style.display = "none"
+    }
+  }
+})
+

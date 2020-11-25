@@ -112,3 +112,19 @@ summary {
   padding: 5px 10px;
   font-size: small;
 }
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+#myInput {
+  width: 30%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+  margin-bottom: 12px;
+}
