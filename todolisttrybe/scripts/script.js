@@ -68,13 +68,13 @@ contents.addEventListener('mouseout', function (e) {
 let keyPressedOnSearch = document.getElementById('myInput')
 keyPressedOnSearch.addEventListener('keyup', function () {
   let input = document.getElementById('myInput');
-  textToSearch = input.value.toUpperCase();
+  textFromSearchBar = input.value.toUpperCase();
 
   let blocks = document.querySelectorAll('details');
 
   for (let index = 0; index < blocks.length; index += 1) {
     let blocksToUppercase = blocks[index].innerText;
-    if (blocksToUppercase.toUpperCase().indexOf(textToSearch) > -1) {
+    if (blocksToUppercase.toUpperCase().indexOf(textFromSearchBar) > -1) {
       blocks[index].style.display = ""
     } else {
       blocks[index].style.display = "none"
@@ -82,3 +82,26 @@ keyPressedOnSearch.addEventListener('keyup', function () {
   }
 })
 
+let checkbox = document.querySelector('#checkbox');
+
+checkbox.addEventListener('change', () => {
+  document.body.classList.toggle('darkmode')
+  console.log("ops")
+  const li = document.querySelectorAll('#conteudos');
+  li.forEach((li) => { li.classList.toggle('lidark') }
+  );
+
+  const summary = document.querySelectorAll('summary');
+  summary.forEach((summary) => { summary.classList.toggle('lidark') }
+  );
+
+  const title = document.querySelector('.title');
+  title.classList.toggle('titleDark');
+
+  const label = document.querySelector('.form-input');
+  label.classList.toggle('titleDark');
+
+  const aDarkMode = document.querySelector('.checkbox a');
+  aDarkMode.classList.toggle('titleDark');
+
+});
