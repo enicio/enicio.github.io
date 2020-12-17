@@ -24,59 +24,64 @@ const hora = button.addEventListener('click', () => {
 
   const arrayRGB = gererateRandomColor();
 
-  //console.log(finalHourSeparated);
+  if (schedule === '' || initialHour === '' || finalHour === '') {
+    alert('Não pode haver campos em branco.')
+  } else {
+
+    if (initialHourSeparated[0] > 12) {
+      initialHourSeparated[0] = initialHourSeparated[0] - 12;
+    }
+
+    if (finalHourSeparated[0] > 12) {
+      finalHourSeparated[0] = finalHourSeparated[0] - 12;
+    }
+
+    const initialHourToMinutes = (Number(initialHourSeparated[0]) * 60) + Number(initialHourSeparated[1]);
+    const finalHourToMinutes = (Number(finalHourSeparated[0]) * 60) + Number(finalHourSeparated[1]);
+    const durationOfSchedule = Math.abs((Number(finalHourToMinutes) - Number(initialHourToMinutes)) * 0.166);
+
+    const ol = document.querySelector('.list');
+    const li = document.createElement('LI');
+    const span = document.createElement('span');
+    //li.classList.add(`bkgrd-color-${cont}`);
+    li.style.background = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]})`
+    li.innerHTML = ` ${schedule} ${initialHourSeparated[0]}:${initialHourSeparated[1]} pm ate
+                     ${finalHourSeparated[0]}:${finalHourSeparated[1]} pm`;
+    span.innerHTML = '  Apagar';
+    span.setAttribute('class', 'erase');
+    // console.log(span);
+    li.appendChild(span);
+    li.setAttribute('class', `toER${arrayRGB[0]}${arrayRGB[1]}`)
+    ol.appendChild(li);
+
+    const degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
+    //console.log(degreeToRotate);
+    //console.log('cont', cont)
+
+    const clock = document.querySelector('.clock');
+    const sv = `
+        <svg viewBox="0 0 36 36" class="circular-chart rotate-${cont} toER${arrayRGB[0]}${arrayRGB[1]}">
+          <path class="circle color-${cont} stroke-${cont} " d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831" />
+        </svg>
+    `;
+    clock.innerHTML += sv;
+    cont = cont + 1;
+
+    clock.lastElementChild.style.transform = `rotate(${degreeToRotate}deg)`;
+    clock.lastElementChild.style.strokeDasharray = `${durationOfSchedule} , 100`;
+    clock.lastElementChild.lastElementChild.style.stroke = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]})`
+
+    // schedule.value = '';
+    // initialHour.value = '';
+    // finalHour.value = '';
+    document.querySelector('#schedule').value = '';
+    document.querySelector('#initial-hour').value = '';
+    document.querySelector('#final-hour').value = '';
 
 
-  if (initialHourSeparated[0] > 12) {
-    initialHourSeparated[0] = initialHourSeparated[0] - 12;
   }
-
-  if (finalHourSeparated[0] > 12) {
-    finalHourSeparated[0] = finalHourSeparated[0] - 12;
-  }
-
-  const initialHourToMinutes = (Number(initialHourSeparated[0]) * 60) + Number(initialHourSeparated[1]);
-  const finalHourToMinutes = (Number(finalHourSeparated[0]) * 60) + Number(finalHourSeparated[1]);
-  const durationOfSchedule = Math.abs((Number(finalHourToMinutes) - Number(initialHourToMinutes)) * 0.166);
-  // console.log(initialHourToMinutes, finalHourToMinutes);
-  // console.log(durationOfSchedule);
-
-  const ol = document.querySelector('.list');
-  const li = document.createElement('LI');
-  const span = document.createElement('span');
-  //li.classList.add(`bkgrd-color-${cont}`);
-  li.style.background = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]})`
-  li.innerHTML = ` ${schedule} ${initialHourSeparated[0]}:${initialHourSeparated[1]} pm ate
-                   ${finalHourSeparated[0]}:${finalHourSeparated[1]} pm`;
-  span.innerHTML = '  Apagar';
-  span.setAttribute('class', 'erase');
-  // console.log(span);
-  li.appendChild(span);
-  li.setAttribute('class', `toER${arrayRGB[0]}${arrayRGB[1]}`)
-  ol.appendChild(li);
-
-  const degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
-  console.log(degreeToRotate);
-  //console.log('cont', cont)
-
-  const clock = document.querySelector('.clock');
-  const sv = `
-      <svg viewBox="0 0 36 36" class="circular-chart rotate-${cont} toER${arrayRGB[0]}${arrayRGB[1]}">
-        <path class="circle color-${cont} stroke-${cont} " d="M18 2.0845
-              a 15.9155 15.9155 0 0 1 0 31.831
-              a 15.9155 15.9155 0 0 1 0 -31.831" />
-      </svg>
-  `;
-  clock.innerHTML += sv;
-  cont = cont + 1;
-
-
-
-  clock.lastElementChild.style.transform = `rotate(${degreeToRotate}deg)`;
-  clock.lastElementChild.style.strokeDasharray = `${durationOfSchedule} , 100`;
-  clock.lastElementChild.lastElementChild.style.stroke = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]})`
-
-
 
 });
 
@@ -96,7 +101,12 @@ setInterval(() => {
   const hr = document.querySelector('#hr');
   const mn = document.querySelector('#mn');
   const sc = document.querySelector('#sc');
+  const dateComplete = document.querySelector('#date');
   let day = new Date();
+  let actualDay = day.getDate();
+  let mouth = day.getMonth() + 1;
+  let year = day.getFullYear();
+  dateComplete.innerText = `${actualDay}/${mouth}/${year}`;
   let hh = day.getHours() * 30;
   let mm = day.getMinutes() * 6;
   let ss = day.getSeconds() * 6;
