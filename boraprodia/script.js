@@ -14,6 +14,17 @@ const gererateRandomColor = () => {
   return array;
 };
 
+const saveToLocalStorage = () => {
+  //const svgs = document.getElementsByClassName('circular-chart');
+  const svgs = document.querySelector('.svgonclock');
+  const lists = document.querySelector('.list');
+  //console.log(svgs.innerHTML);
+  const schedulesList = lists.innerHTML;
+  const scheduleSVG = svgs.innerHTML;
+  localStorage.setItem('svgs', scheduleSVG);
+  localStorage.setItem('list', schedulesList);
+};
+
 const button = document.querySelector('.button');
 const hora = button.addEventListener('click', () => {
   const schedule = document.querySelector('#schedule').value;
@@ -43,22 +54,18 @@ const hora = button.addEventListener('click', () => {
     const ol = document.querySelector('.list');
     const li = document.createElement('LI');
     const span = document.createElement('span');
-    //li.classList.add(`bkgrd-color-${cont}`);
     li.style.background = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]})`
     li.innerHTML = ` ${schedule} ${initialHourSeparated[0]}:${initialHourSeparated[1]} pm ate
                      ${finalHourSeparated[0]}:${finalHourSeparated[1]} pm`;
     span.innerHTML = '  Apagar';
     span.setAttribute('class', 'erase');
-    // console.log(span);
     li.appendChild(span);
     li.setAttribute('class', `toER${arrayRGB[0]}${arrayRGB[1]}`)
     ol.appendChild(li);
 
     const degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
-    //console.log(degreeToRotate);
-    //console.log('cont', cont)
 
-    const clock = document.querySelector('.clock');
+    const svgonclock = document.querySelector('.svgonclock');
     const sv = `
         <svg viewBox="0 0 36 36" class="circular-chart rotate-${cont} toER${arrayRGB[0]}${arrayRGB[1]}">
           <path class="circle color-${cont} stroke-${cont} " d="M18 2.0845
@@ -66,21 +73,18 @@ const hora = button.addEventListener('click', () => {
                 a 15.9155 15.9155 0 0 1 0 -31.831" />
         </svg>
     `;
-    clock.innerHTML += sv;
+    svgonclock.innerHTML += sv;
     cont = cont + 1;
 
-    clock.lastElementChild.style.transform = `rotate(${degreeToRotate}deg)`;
-    clock.lastElementChild.style.strokeDasharray = `${durationOfSchedule} , 100`;
-    clock.lastElementChild.lastElementChild.style.stroke = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]})`
+    svgonclock.lastElementChild.style.transform = `rotate(${degreeToRotate}deg)`;
+    svgonclock.lastElementChild.style.strokeDasharray = `${durationOfSchedule} , 100`;
+    svgonclock.lastElementChild.lastElementChild.style.stroke = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]})`
 
-    // schedule.value = '';
-    // initialHour.value = '';
-    // finalHour.value = '';
     document.querySelector('#schedule').value = '';
     document.querySelector('#initial-hour').value = '';
     document.querySelector('#final-hour').value = '';
 
-
+    saveToLocalStorage()
   }
 
 });
@@ -92,6 +96,7 @@ const toEraseOneItem = (e) => {
     elementsToErase.forEach((element) => {
       element.remove();
     });
+    saveToLocalStorage()
   }
 };
 
@@ -114,3 +119,22 @@ setInterval(() => {
   mn.style.transform = `rotateZ(${mm}deg)`;
   sc.style.transform = `rotateZ(${ss}deg)`;
 }, 1000);
+
+const recoverSchedulesOnLocalStorage = () => {
+
+  const listOnLocalStorage = localStorage.getItem('list')
+  const listOPS = document.querySelector('.list');
+  const listRec = listOnLocalStorage;
+  listOPS.innerHTML = listRec;
+
+  const svgOnLocalStotage = localStorage.getItem('svgs')
+  const svgonclock = document.querySelector('.svgonclock');
+  const svRec = svgOnLocalStotage;
+  svgonclock.innerHTML = svRec;
+};
+
+
+window.onload = function () {
+  console.log('Verifica local storage');
+  recoverSchedulesOnLocalStorage();
+};
