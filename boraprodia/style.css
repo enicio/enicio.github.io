@@ -169,12 +169,16 @@ svg {
 .form {
   display: flex;
   align-items: center;
+   outline: none;
 }
 
 .form input {
-  width: 15vw;
+  width: 35vw;
   height: 25px;
-  /* margin-left: 5px; */
+  border: none;
+  background-color: rgb(231, 241, 232);
+  padding: 5px;
+  border-radius: 5%;
 }
 
 .form input[type="datetime"] {
@@ -201,7 +205,6 @@ svg {
 
 .todo label {
   color: #797474;
-  /* padding: 2px; */
 }
 
 .initialHour {
