@@ -14,13 +14,14 @@ body {
   background: #9a9fc5;
 }
 .clock {
-  width: 380px;
-  height: 380px;
+  width: 250px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 8px solid #fff; */
+  border: 8px solid #fff;
   border-radius: 50%;
+  margin-top: 5px;
 }
 .clock::before {
   content: '';
@@ -103,19 +104,10 @@ li .erase {
 .circular-chart {
   display: block;
   position: absolute;
-  margin: 10px auto;
+  margin: 0px 0px;
   max-width: 100%;
   max-height: 250px;
-  /* z-index: 2; */
 }
-
-/* .rotate-1 {
-  transform: rotate(90deg);
-}
-
-.rotate-2 {
-  transform: rotate(160deg);
-} */
 
 svg {
   width: 250px;
@@ -124,7 +116,7 @@ svg {
 
 .circle {
   fill: none;
-  stroke-width: 2;
+  stroke-width: 1.5;
   stroke-linecap: round;
   animation: progress 1s ease-out forwards;
   /* stroke-dasharray: 20, 100; */
