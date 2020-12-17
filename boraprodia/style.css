@@ -60,14 +60,14 @@ body {
   position: absolute;
   width: 8px;
   height: 100px;
-  background: #fff;
+  background: rgb(245, 161, 36);
 }
 .mn::before {
   content: '';
   position: absolute;
   width: 4px;
   height: 110px;
-  background: #fff;
+  background: rgb(245, 161, 36);
 }
 .sc::before {
   content: '';
