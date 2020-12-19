@@ -55,10 +55,11 @@ const hora = button.addEventListener('click', () => {
     const li = document.createElement('LI');
     const span = document.createElement('span');
     li.style.background = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]})`
-    li.innerHTML = ` ${schedule} ${initialHourSeparated[0]}:${initialHourSeparated[1]} pm ate
-                     ${finalHourSeparated[0]}:${finalHourSeparated[1]} pm`;
-    span.innerHTML = '  Apagar';
+    li.innerHTML = ` ${schedule} ${initialHourSeparated[0]}:${initialHourSeparated[1]} ate
+                     ${finalHourSeparated[0]}:${finalHourSeparated[1]} `;
+    // span.innerHTML = '  Apagar';
     span.setAttribute('class', 'erase');
+    span.setAttribute('class', 'glyphicon glyphicon-remove')
     li.appendChild(span);
     li.setAttribute('class', `toER${arrayRGB[0]}${arrayRGB[1]}`)
     ol.appendChild(li);
@@ -90,7 +91,7 @@ const hora = button.addEventListener('click', () => {
 });
 
 const toEraseOneItem = (e) => {
-  if (e.target.innerText === 'Apagar') {
+  if (e.target.classList[1] === 'glyphicon-remove') {
     const classToErase = e.target.parentElement.classList[0];
     const elementsToErase = document.querySelectorAll(`.${classToErase}`);
     elementsToErase.forEach((element) => {

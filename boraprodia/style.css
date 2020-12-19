@@ -14,6 +14,13 @@ body {
   min-height: 100vh;
   background: #ffffff;
 }
+
+h1 {
+  font-family: ubuntu !important;
+}
+h3 {
+  font-family: ubuntu !important;
+}
 .clock {
   width: 250px;
   height: 250px;
@@ -184,7 +191,7 @@ svg {
   height: 25px;
   border: none;
   background-color: rgb(231, 241, 232);
-  padding: 5px;
+  padding: 3px 2px 4px 4px;
   border-radius: 5%;
 }
 
@@ -194,7 +201,7 @@ svg {
 }
 
 .form .button {
-  margin-top: 12px;
+  margin-top: 22px;
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -229,4 +236,8 @@ svg {
   color: #797474;
   margin: 5px;
   font-size: small;
+}
+
+.glyphicon-remove:before {
+  padding: 1px 2px 1px 20px;
 }
