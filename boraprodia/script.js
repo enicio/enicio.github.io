@@ -90,6 +90,11 @@ const hora = button.addEventListener('click', () => {
 
 });
 
+const ajusteBUG = document.querySelectorAll('.erase');
+ajusteBUG.forEach((paraagagar) => {
+  paraagagar.parentElement.remove();
+});
+
 const toEraseOneItem = (e) => {
   if (e.target.classList[1] === 'glyphicon-remove') {
     const classToErase = e.target.parentElement.classList[0];
