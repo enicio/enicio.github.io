@@ -28,8 +28,8 @@ const saveToLocalStorage = () => {
 const button = document.querySelector('.button');
 const hora = button.addEventListener('click', () => {
   const schedule = document.querySelector('#schedule').value;
-  const initialHour = document.querySelector('#initial-hour').value;
-  const finalHour = document.querySelector('#final-hour').value;
+  const initialHour = document.querySelector('#initialHour').value;
+  const finalHour = document.querySelector('#finalHour').value;
   const initialHourSeparated = initialHour.split(':')
   const finalHourSeparated = finalHour.split(':')
 
@@ -81,8 +81,8 @@ const hora = button.addEventListener('click', () => {
     svgonclock.lastElementChild.lastElementChild.style.stroke = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]})`
 
     document.querySelector('#schedule').value = '';
-    document.querySelector('#initial-hour').value = '';
-    document.querySelector('#final-hour').value = '';
+    document.querySelector('#initialHour').value = '';
+    document.querySelector('#finalHour').value = '';
 
     saveToLocalStorage()
   }
@@ -135,6 +135,5 @@ const recoverSchedulesOnLocalStorage = () => {
 
 
 window.onload = function () {
-  console.log('Verifica local storage');
   recoverSchedulesOnLocalStorage();
 };
