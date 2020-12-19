@@ -92,7 +92,7 @@ const hora = button.addEventListener('click', () => {
 console.log('ops');
 
 const ajuste = document.querySelectorAll('.erase');
-(ajuste) ? localStorage.clear() : console.log('num deu');
+(ajuste.length > 0) ? localStorage.clear() : console.log('num deu');
 ajuste.forEach((apagar) => {
   console.log('ops');
   apagar.parentElement.remove()
