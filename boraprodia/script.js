@@ -89,9 +89,14 @@ const hora = button.addEventListener('click', () => {
   }
 
 });
+console.log('ops');
 
 const ajuste = document.querySelectorAll('.erase');
-ajuste.forEach((apagar) => apagar.parentElement.remove());
+(ajuste) ? localStorage.clear() : console.log('num deu');
+ajuste.forEach((apagar) => {
+  console.log('ops');
+  apagar.parentElement.remove()
+});
 
 
 const toEraseOneItem = (e) => {
