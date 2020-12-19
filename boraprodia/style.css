@@ -188,8 +188,9 @@ svg {
   border-radius: 5%;
 }
 
-.form input[type="datetime"] {
-  width: 50px;
+#initialHour,
+#finalHour {
+  width: 100px;
 }
 
 .form .button {
