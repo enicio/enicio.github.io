@@ -32,6 +32,7 @@ const hora = button.addEventListener('click', () => {
   const finalHour = document.querySelector('#finalHour').value;
   const initialHourSeparated = initialHour.split(':')
   const finalHourSeparated = finalHour.split(':')
+  let AMPM = '';
 
   const arrayRGB = gererateRandomColor();
 
@@ -41,6 +42,9 @@ const hora = button.addEventListener('click', () => {
 
     if (initialHourSeparated[0] > 12) {
       initialHourSeparated[0] = initialHourSeparated[0] - 12;
+      AMPM = 'pm';
+    } else {
+      AMPM = 'am';
     }
 
     if (finalHourSeparated[0] > 12) {
@@ -55,8 +59,8 @@ const hora = button.addEventListener('click', () => {
     const li = document.createElement('LI');
     const span = document.createElement('span');
     li.style.background = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]})`
-    li.innerHTML = ` ${schedule} ${initialHourSeparated[0]}:${initialHourSeparated[1]} ate
-                     ${finalHourSeparated[0]}:${finalHourSeparated[1]} `;
+    li.innerHTML = ` ${schedule} ${initialHourSeparated[0]}:${initialHourSeparated[1]} ${AMPM} ate
+                     ${finalHourSeparated[0]}:${finalHourSeparated[1]} ${AMPM} `;
     // span.innerHTML = '  Apagar';
     span.setAttribute('class', 'erase');
     span.setAttribute('class', 'glyphicon glyphicon-remove')
@@ -121,7 +125,11 @@ setInterval(() => {
   let actualDay = day.getDate();
   let mouth = day.getMonth() + 1;
   let year = day.getFullYear();
-  dateComplete.innerText = `${actualDay}/${mouth}/${year}`;
+  let dateInPage = Number(dateComplete.innerText.substring(0, 2));
+  if (actualDay !== dateInPage) {
+    dateComplete.innerText = `${actualDay}/${mouth}/${year}`;
+  }
+  //dateComplete.innerText = `${actualDay}/${mouth}/${year}`;
   let hh = day.getHours() * 30;
   let mm = day.getMinutes() * 6;
   let ss = day.getSeconds() * 6;
