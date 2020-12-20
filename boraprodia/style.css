@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: ubuntu , Courier, monospace;
+  font-family: Ubuntu , Courier, monospace;
 }
 body {
   display: flex;
@@ -16,10 +16,10 @@ body {
 }
 
 h1 {
-  font-family: ubuntu !important;
+  font-family: Ubuntu;
 }
 h3 {
-  font-family: ubuntu !important;
+  font-family: Ubuntu;
 }
 .clock {
   width: 250px;
@@ -191,7 +191,7 @@ svg {
   height: 25px;
   border: none;
   background-color: rgb(231, 241, 232);
-  padding: 3px 2px 4px 4px;
+  padding: 2px 2px 4px 4px;
   border-radius: 5%;
 }
 
@@ -240,4 +240,24 @@ svg {
 
 .glyphicon-remove:before {
   padding: 1px 2px 1px 20px;
+}
+
+@media ( max-width: 420px) {
+
+  .h3, h3 {
+    font-size: 16px;
+  }
+  .form {
+    display: block;
+    margin: 13px;
+  }
+  .form input {
+    width: 60vw;
+  }
+  .form .button {
+    margin-top: 8px;
+    margin-bottom: 5px;
+  }
+
+
 }

@@ -129,7 +129,6 @@ setInterval(() => {
   if (actualDay !== dateInPage) {
     dateComplete.innerText = `${actualDay}/${mouth}/${year}`;
   }
-  //dateComplete.innerText = `${actualDay}/${mouth}/${year}`;
   let hh = day.getHours() * 30;
   let mm = day.getMinutes() * 6;
   let ss = day.getSeconds() * 6;
