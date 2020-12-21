@@ -1,0 +1,45 @@
+h1 {
+  display: flex;
+  align-content: center;
+  margin: auto;
+  margin-left: 25vw;
+  align-items: center;
+}
+
+h6 {
+  color: rgb(207, 206, 206);
+  display: flex;
+  align-content: center;
+  margin: auto;
+  margin-left: 25vw;
+  align-items: center;
+  padding: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  width: 30vw;
+  /* max-width: 300px; */
+  margin: auto;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+form textarea {
+  width: 40vw;
+  max-width: 300px;
+  min-width: 200px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+input {
+  display: flex;
+  margin: auto;
+  padding: 2px;
+  margin-top: 30px;
+}
