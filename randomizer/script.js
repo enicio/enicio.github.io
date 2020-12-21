@@ -30,13 +30,33 @@ const createList = (li) => {
   });
 }
 
+const removeSpaceOnString = (arraypal) => {
+  const stringsWithSpaceRemoved = arraypal.map(cadaum => {
+    return cadaum.trim();
+  });
+  return stringsWithSpaceRemoved;
+};
+const checkDuplicity = (arraypal) => {
+
+  const stringsWithSpaceRemoved = removeSpaceOnString(arraypal);
+
+  const newArrayWithUniqueElements = stringsWithSpaceRemoved.filter((element, index) => {
+    console.log(stringsWithSpaceRemoved.indexOf(element), index)
+    return stringsWithSpaceRemoved.indexOf(element) === index;
+  });
+  return newArrayWithUniqueElements;
+}
+
 
 const randomizer = () => {
   const contentText = document.querySelector('#w3review').value;
   const itensOnArray = contentText.split('\n');
-  const arrayWithRandomicNumbers = createRandomNumbers(0, itensOnArray.length - 1);
+
+  const newArrayWithOutDuplicity = checkDuplicity(itensOnArray)
+
+  const arrayWithRandomicNumbers = createRandomNumbers(0, newArrayWithOutDuplicity.length - 1);
   const contentTextRandomized = arrayWithRandomicNumbers.map((number) => {
-    return itensOnArray[number];
+    return newArrayWithOutDuplicity[number];
   });
   createList(contentTextRandomized);
 }
