@@ -35,6 +35,7 @@ h3 {
   border: 8px solid rgb(186, 245, 175);
   border-radius: 50%;
   margin-top: 5px;
+  background: url(./Ios_clock.svg) no-repeat ;
 }
 
 .svgonclock {
@@ -186,9 +187,9 @@ svg {
 }
 
 .form {
-  display: flex;
-  align-items: center;
-   outline: none;
+  display: block;
+  /* align-items: center;
+   outline: none; */
 }
 
 .form input {
@@ -241,6 +242,31 @@ svg {
   color: #797474;
   margin: 5px;
   font-size: small;
+}
+
+.todolist {
+  display: flex;
+  flex-direction: row;
+}
+
+.todolist form {
+  display: block;
+  /* flex-direction: row; */
+}
+
+.textarea {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.textarea form {
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea input {
+  margin: 5px;
 }
 
 .glyphicon-remove:before {

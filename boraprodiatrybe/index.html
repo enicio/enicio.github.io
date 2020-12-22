@@ -30,32 +30,34 @@
             <input type="time" id="finalHour" name="finalHour" min="09:00" max="18:00" required>
           </div>
           <input class="button" type="button" value=">">
+          <div class="lists">
+            <ol class="list">
+            </ol>
+          </div>
         </div>
-        <div class="lists">
-          <ol class="list">
-          </ol>
-        </div>
-        <div class="clock">
-          <div class="hour">
-            <div class="hr" id="hr"></div>
-          </div>
-          <div class="min">
-            <div class="mn" id="mn"></div>
-          </div>
-          <div class="sec">
-            <div class="sc" id="sc"></div>
-          </div>
-          <div class="svgonclock">
+        <div class="listandclock">
+          <div class="clock">
+            <div class="hour">
+              <div class="hr" id="hr"></div>
+            </div>
+            <div class="min">
+              <div class="mn" id="mn"></div>
+            </div>
+            <div class="sec">
+              <div class="sc" id="sc"></div>
+            </div>
+            <div class="svgonclock">
+            </div>
           </div>
         </div>
       </section>
       <section class="textarea">
         <form>
-          <label for="w3review">Entre com a lista de itens que deseja ter uma saida aleatória</label>
-          <textarea id="w3review" name="w3review" rows="30" cols="50">
+          <label for="schedulesText">Cole aqui o conteudo da agenda do dia</label>
+          <textarea id="schedulesText" name="schedulesText" rows="30" cols="50">
         </textarea>
         </form>
-        <input id="submit" type="button" value="Randomize">
+        <input id="submit" type="button" value="Cadastrar horários">
       </section>
     </div>
     <script src="./script.js"></script>
