@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <title>Clock</title>
+  </head>
+
+  <body>
+    <h1>Bora pro dia Trybers!!</h1>
+    <h3>Cadastre os horários do dia de hoje!</h3>
+    <span id="date"></span>
+    <div class="allcontent">
+      <section class="todolist">
+        <div class="form">
+          <div class="todo">
+            <label for="">A fazer</label>
+            <input type="text" name="" id="schedule">
+          </div>
+          <div class="initialHour">
+            <label for="">Inicio</label>
+            <input type="time" id="initialHour" name="initialHour" min="09:00" max="18:00" required>
+          </div>
+          <div class="finalHour">
+            <label for="">Fim</label>
+            <input type="time" id="finalHour" name="finalHour" min="09:00" max="18:00" required>
+          </div>
+          <input class="button" type="button" value=">">
+        </div>
+        <div class="lists">
+          <ol class="list">
+          </ol>
+        </div>
+        <div class="clock">
+          <div class="hour">
+            <div class="hr" id="hr"></div>
+          </div>
+          <div class="min">
+            <div class="mn" id="mn"></div>
+          </div>
+          <div class="sec">
+            <div class="sc" id="sc"></div>
+          </div>
+          <div class="svgonclock">
+          </div>
+        </div>
+      </section>
+      <section class="textarea">
+        <form>
+          <label for="w3review">Entre com a lista de itens que deseja ter uma saida aleatória</label>
+          <textarea id="w3review" name="w3review" rows="30" cols="50">
+        </textarea>
+        </form>
+        <input id="submit" type="button" value="Randomize">
+      </section>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,500;0,700;1,300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Ubuntu , Courier, monospace;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.allcontent {
+  display: flex;
+  flex-direction: row;
+}
+
+h1 {
+  font-family: Ubuntu;
+}
+h3 {
+  font-family: Ubuntu;
+}
+.clock {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 8px solid rgb(186, 245, 175);
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+.svgonclock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock::before {
+  content: '';
+  position: absolute;
+  width:  15px;
+  height: 15px;
+  background: #2196f3;
+  z-index: 1000;
+  border-radius: 50%;
+}
+.hour,
+.min,
+.sec {
+  position: absolute;
+}
+.hour, .hr {
+  width: 200px;
+  height: 200px;
+}
+.min, .mn {
+  width: 230px;
+  height: 230px;
+}
+.sec, .sc {
+  width: 250px;
+  height: 250px;
+}
+.hr, .mn, .sc {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+.hr::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 100px;
+  background: rgb(245, 161, 36);
+}
+.mn::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 110px;
+  background: rgb(245, 161, 36);
+}
+.sc::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 120px;
+  background: red;
+}
+
+h3 {
+  margin: 14px;
+}
+
+.form {
+  margin: 5px;
+}
+
+li {
+  color: rgb(233, 240, 233);
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+li .erase {
+  margin-left: 15px;
+}
+
+.erase {
+  color: white;
+  font-size: small;
+}
+
+.circular-chart {
+  display: block;
+  position: absolute;
+  margin: 0px 0px;
+  max-width: 100%;
+  max-height: 250px;
+}
+
+svg {
+  width: 250px;
+  height: 250px;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+  /* stroke-dasharray: 20, 100; */
+}
+
+.color-1 {
+  stroke: #c74c4c;
+}
+
+.color-2 {
+  stroke:brown;
+}
+
+.color-3 {
+  stroke:rgb(69, 42, 165);
+}
+
+.color-4 {
+  stroke:rgb(235, 203, 27);
+}
+
+.bkgrd-color-1 {
+  background: #4CC790;
+}
+
+.bkgrd-color-2 {
+  background: brown;
+}
+
+.bkgrd-color-3 {
+  background: rgb(69, 42, 165);
+}
+
+.bkgrd-color-4 {
+  background: rgb(235, 203, 27);
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+   outline: none;
+}
+
+.form input {
+  width: 35vw;
+  height: 25px;
+  border: none;
+  background-color: rgb(231, 241, 232);
+  padding: 2px 2px 4px 4px;
+  border-radius: 5%;
+}
+
+#initialHour,
+#finalHour {
+  width: 100px;
+}
+
+.form .button {
+  margin-top: 22px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: rgb(255, 254, 251);
+  background-color: rgb(247, 149, 3);
+  border: none;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px;
+  font-size: small;
+}
+
+.todo label {
+  color: #797474;
+}
+
+.initialHour {
+  display: flex;
+  flex-direction: column;
+  color: #797474;
+  margin: 5px;
+  font-size: small;
+}
+
+.finalHour {
+  display: flex;
+  flex-direction: column;
+  color: #797474;
+  margin: 5px;
+  font-size: small;
+}
+
+.glyphicon-remove:before {
+  padding: 1px 2px 1px 20px;
+}
+
+@media ( max-width: 420px) {
+
+  .h3, h3 {
+    font-size: 16px;
+  }
+  .form {
+    display: block;
+    margin: 13px;
+  }
+  .form input {
+    width: 60vw;
+  }
+  .form .button {
+    margin-top: 8px;
+    margin-bottom: 5px;
+  }
+
+
+}
