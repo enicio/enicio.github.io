@@ -15,6 +15,12 @@ const gererateRandomColor = () => {
 };
 
 const createLI = (initialHourSeparated, finalHourSeparated, schedule, arrayRGB) => {
+
+  const ops = parseInt(initialHourSeparated[1]);
+  if (isNaN(ops)) {
+    initialHourSeparated[1] = '00';
+  };
+
   const initialHourToMinutes = (Number(initialHourSeparated[0]) * 60) + Number(initialHourSeparated[1]);
   const finalHourToMinutes = (Number(finalHourSeparated[0]) * 60) + Number(finalHourSeparated[1]);
   const durationOfSchedule = Math.abs((Number(finalHourToMinutes) - Number(initialHourToMinutes)) * 0.166);
@@ -23,8 +29,8 @@ const createLI = (initialHourSeparated, finalHourSeparated, schedule, arrayRGB) 
   const li = document.createElement('LI');
   const span = document.createElement('span');
   li.style.background = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]})`
-  li.innerHTML = ` ${schedule} ${initialHourSeparated[0]}:${initialHourSeparated[1]} ate
-                   ${finalHourSeparated[0]}:${finalHourSeparated[1]}`;
+  li.innerHTML = ` ${initialHourSeparated[0]}:${initialHourSeparated[1]} ate
+                   ${finalHourSeparated[0]}:${finalHourSeparated[1]} | ${schedule}`;
 
   span.setAttribute('class', 'erase');
   span.setAttribute('class', 'glyphicon glyphicon-remove')
@@ -57,7 +63,8 @@ schedulesTrybe.addEventListener('click', () => {
 
   const linesByHour = arrayOfLinesOnTextArea.map((line) => {
     // console.log(line);
-    const hour = line.toString().match(/(0[0-9]|1[0-9]|2[0-9])h([0-9])\w+/);
+    // const hour = line.toString().match(/(0[0-9]|1[0-9]|2[0-9])h([0-9])\w+/);
+    const hour = line.toString().match(/(0[0-9]|1[0-9]|2[0-9])h([0-9]|([ ]))\w+/);
     if (hour !== null) return hour;
   });
 
