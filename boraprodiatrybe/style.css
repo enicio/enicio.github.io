@@ -123,12 +123,13 @@ h3 {
 }
 
 .form {
-  margin: 5px;
+  margin: 15px;
 }
 
 li {
+  max-width: 400px;
   color: rgb(233, 240, 233);
-  height: 30px;
+  /* height: 30px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -214,7 +215,7 @@ svg {
 }
 
 .form input {
-  width: 35vw;
+  width: 28vw;
   height: 25px;
   border: none;
   background-color: rgb(231, 241, 232);
@@ -276,6 +277,7 @@ svg {
 }
 
 .textarea {
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   margin: 20px;
