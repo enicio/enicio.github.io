@@ -14,6 +14,19 @@ const gererateRandomColor = () => {
   return array;
 };
 
+const getSchedulesSVG = () => {
+  let arrayOfAngles = [];
+  const svgTag = document.querySelectorAll('.circular-chart');
+  svgTag.forEach((svg) => {
+    const rotateZ = svg.style.transform;
+    const angleOnSvg = rotateZ.match(/([0-9])?([0-9][0-9])(\.([0-9]))?/);
+    arrayOfAngles.push(angleOnSvg[0])
+    // console.log(angleOnSvg[0]);
+  });
+  //console.log(arrayOfAngles);
+  return arrayOfAngles;
+};
+
 const createLI = (initialHourSeparated, finalHourSeparated, schedule, arrayRGB) => {
 
   const ops = parseInt(initialHourSeparated[1]);
@@ -87,8 +100,9 @@ schedulesTrybe.addEventListener('click', () => {
 });
 
 const createSchedulesOnClock = (initialHourSeparated, durationOfSchedule, arrayRGB) => {
-  const degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
-
+  let degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
+  if (initialHourSeparated[0] > 12) degreeToRotate -= 360;
+  console.log(degreeToRotate)
   const svgonclock = document.querySelector('.svgonclock');
 
   const sv = `
@@ -125,16 +139,9 @@ const hora = button.addEventListener('click', () => {
 
     const durationOfSchedule = createLI(initialHourSeparated, finalHourSeparated, schedule, arrayRGB);
 
-    const degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
-
+    let degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
+    if (initialHourSeparated[0] > 12) degreeToRotate -= 360;
     const svgonclock = document.querySelector('.svgonclock');
-    // const sv = `
-    //     <svg viewBox="0 0 36 36" class="circular-chart rotate-${cont} toER${arrayRGB[0]}${arrayRGB[1]}">
-    //       <path class="circle color-${cont} stroke-${cont} " d="M18 2.0845
-    //             a 15.9155 15.9155 0 0 1 0 31.831
-    //             a 15.9155 15.9155 0 0 1 0 -31.831" />
-    //     </svg>
-    // `;
 
     const sv = `
         <svg viewBox="0 0 36 36" class="circular-chart toER${arrayRGB[0]}${arrayRGB[1]}">
@@ -177,6 +184,45 @@ const toEraseOneItem = (e) => {
 
 document.addEventListener('click', toEraseOneItem);
 
+const mouths = {
+  1: 'Janeiro',
+  2: 'Fevereiro',
+  3: 'Março',
+  4: 'Abril',
+  5: 'Maio',
+  6: 'Junho',
+  7: 'Julho',
+  8: 'Agosto',
+  9: 'Setembro',
+  10: 'Outubro',
+  11: 'Novembro',
+  12: 'Dezembro',
+}
+
+const getAngleOfHour = () => {
+  const actualAngleOfPointer = document.querySelector('#hr').style.transform;
+  // console.log(actualAngleOfPointer)
+  const angle = actualAngleOfPointer.match(/([0-9])?([0-9][0-9])(\.([0-9]))?/);
+  return angle[0];
+  // console.log(angle)
+};
+
+const alertToClasse = () => {
+  const ops = getAngleOfHour();
+  const kombi = getSchedulesSVG();
+
+  kombi.forEach((schedule) => {
+    if (schedule === ops) {
+      console.log("ALERTA");
+    }
+  })
+  console.log(ops, kombi);
+
+};
+
+
+
+
 setInterval(() => {
   const hr = document.querySelector('#hr');
   const mn = document.querySelector('#mn');
@@ -188,7 +234,7 @@ setInterval(() => {
   let year = day.getFullYear();
   let dateInPage = Number(dateComplete.innerText.substring(0, 2));
   if (actualDay !== dateInPage) {
-    dateComplete.innerText = `${actualDay}/${mouth}/${year}`;
+    dateComplete.innerText = `${actualDay} de ${mouths[mouth]} de ${year}`;
   }
   let hh = day.getHours() * 30;
   let mm = day.getMinutes() * 6;
@@ -196,6 +242,10 @@ setInterval(() => {
   hr.style.transform = `rotateZ(${hh + (mm / 12)}deg)`;
   mn.style.transform = `rotateZ(${mm}deg)`;
   sc.style.transform = `rotateZ(${ss}deg)`;
+
+  alertToClasse();
+  //console.log(getAngleOfHour())
+
 }, 1000);
 
 const recoverSchedulesOnLocalStorage = () => {
@@ -213,4 +263,6 @@ const recoverSchedulesOnLocalStorage = () => {
 
 window.onload = function () {
   recoverSchedulesOnLocalStorage();
+  // alertToClasse();
+
 };
