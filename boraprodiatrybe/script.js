@@ -53,8 +53,8 @@ const saveToLocalStorage = () => {
   //console.log(svgs.innerHTML);
   const schedulesList = lists.innerHTML;
   const scheduleSVG = svgs.innerHTML;
-  localStorage.setItem('svgs', scheduleSVG);
-  localStorage.setItem('list', schedulesList);
+  localStorage.setItem('svgsTrybe', scheduleSVG);
+  localStorage.setItem('listTrybe', schedulesList);
 };
 const schedulesTrybe = document.querySelector('#submit');
 schedulesTrybe.addEventListener('click', () => {
@@ -199,12 +199,12 @@ setInterval(() => {
 }, 1000);
 
 const recoverSchedulesOnLocalStorage = () => {
-  const listOnLocalStorage = localStorage.getItem('list')
+  const listOnLocalStorage = localStorage.getItem('listTrybe')
   const listOPS = document.querySelector('.list');
   const listRec = listOnLocalStorage;
   listOPS.innerHTML = listRec;
 
-  const svgOnLocalStotage = localStorage.getItem('svgs')
+  const svgOnLocalStotage = localStorage.getItem('svgsTrybe')
   const svgonclock = document.querySelector('.svgonclock');
   const svRec = svgOnLocalStotage;
   svgonclock.innerHTML = svRec;

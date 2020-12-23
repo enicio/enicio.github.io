@@ -32,10 +32,12 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 8px solid rgb(186, 245, 175);
+  border: 8px solid rgb(255, 255, 255);
   border-radius: 50%;
   margin-top: 5px;
   background: url(./Ios_clock.svg) no-repeat ;
+  background-color: rgb(250, 250, 250);
+  box-shadow: 1px 2px 15px rgba(50, 50, 50, 0.77);
 }
 
 .svgonclock {
@@ -44,7 +46,7 @@ h3 {
   align-items: center;
 }
 
-.clock::before {
+/* .clock::before {
   content: '';
   position: absolute;
   width:  15px;
@@ -52,7 +54,25 @@ h3 {
   background: #2196f3;
   z-index: 1000;
   border-radius: 50%;
+} */
+
+.clock::before {
+  content: '';
+  position: absolute;
+  width: 106px;
+  height: 105px;
+  background: #eef1f4;
+  z-index: 1000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  /* align-content: center; */
+  justify-content: center;
+  font-size: x-large;
+  background-color: white;
+  box-shadow: 1px 2px 15px rgba(50, 50, 50, 0.77);
 }
+
 .hour,
 .min,
 .sec {
@@ -81,6 +101,7 @@ h3 {
   width: 8px;
   height: 100px;
   background: rgb(245, 161, 36);
+  padding: 2px;
 }
 .mn::before {
   content: '';
