@@ -14,6 +14,19 @@ const gererateRandomColor = () => {
   return array;
 };
 
+const getSchedulesSVG = () => {
+  let arrayOfAngles = [];
+  const svgTag = document.querySelectorAll('.circular-chart');
+  svgTag.forEach((svg) => {
+    const rotateZ = svg.style.transform;
+    const angleOnSvg = rotateZ.match(/([0-9])?([0-9][0-9])(\.([0-9]))?/);
+    arrayOfAngles.push(angleOnSvg[0])
+    // console.log(angleOnSvg[0]);
+  });
+  //console.log(arrayOfAngles);
+  return arrayOfAngles;
+};
+
 const createLI = (initialHourSeparated, finalHourSeparated, schedule, arrayRGB) => {
 
   const ops = parseInt(initialHourSeparated[1]);
@@ -24,6 +37,10 @@ const createLI = (initialHourSeparated, finalHourSeparated, schedule, arrayRGB) 
   const initialHourToMinutes = (Number(initialHourSeparated[0]) * 60) + Number(initialHourSeparated[1]);
   const finalHourToMinutes = (Number(finalHourSeparated[0]) * 60) + Number(finalHourSeparated[1]);
   const durationOfSchedule = Math.abs((Number(finalHourToMinutes) - Number(initialHourToMinutes)) * 0.166);
+
+  let degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
+  if (initialHourSeparated[0] > 12) degreeToRotate -= 360;
+  const idToGetSchedule = degreeToRotate * 10;
 
   const ol = document.querySelector('.list');
   const li = document.createElement('LI');
@@ -36,6 +53,7 @@ const createLI = (initialHourSeparated, finalHourSeparated, schedule, arrayRGB) 
   span.setAttribute('class', 'glyphicon glyphicon-remove')
   li.appendChild(span);
   li.setAttribute('class', `toER${arrayRGB[0]}${arrayRGB[1]}`)
+  li.setAttribute('id', `A${idToGetSchedule}`)
   ol.appendChild(li);
 
   document.querySelector('#schedule').value = '';
@@ -56,6 +74,7 @@ const saveToLocalStorage = () => {
   localStorage.setItem('svgsTrybe', scheduleSVG);
   localStorage.setItem('listTrybe', schedulesList);
 };
+
 const schedulesTrybe = document.querySelector('#submit');
 schedulesTrybe.addEventListener('click', () => {
   const contentText = document.querySelector('#schedulesText').value;
@@ -87,12 +106,15 @@ schedulesTrybe.addEventListener('click', () => {
 });
 
 const createSchedulesOnClock = (initialHourSeparated, durationOfSchedule, arrayRGB) => {
-  const degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
-
+  let degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
+  if (initialHourSeparated[0] > 12) degreeToRotate -= 360;
+  console.log(degreeToRotate)
   const svgonclock = document.querySelector('.svgonclock');
 
+  const idToGetSchedule = degreeToRotate * 10;
+
   const sv = `
-        <svg viewBox="0 0 36 36" class="circular-chart toER${arrayRGB[0]}${arrayRGB[1]}">
+        <svg viewBox="0 0 36 36" class="circular-chart toER${arrayRGB[0]}${arrayRGB[1]}" id=A${idToGetSchedule}>
           <path class="circle" d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831" />
@@ -125,19 +147,14 @@ const hora = button.addEventListener('click', () => {
 
     const durationOfSchedule = createLI(initialHourSeparated, finalHourSeparated, schedule, arrayRGB);
 
-    const degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
-
+    let degreeToRotate = (30 * Number(initialHourSeparated[0])) + Number(initialHourSeparated[1]) / 2;
+    if (initialHourSeparated[0] > 12) degreeToRotate -= 360;
     const svgonclock = document.querySelector('.svgonclock');
-    // const sv = `
-    //     <svg viewBox="0 0 36 36" class="circular-chart rotate-${cont} toER${arrayRGB[0]}${arrayRGB[1]}">
-    //       <path class="circle color-${cont} stroke-${cont} " d="M18 2.0845
-    //             a 15.9155 15.9155 0 0 1 0 31.831
-    //             a 15.9155 15.9155 0 0 1 0 -31.831" />
-    //     </svg>
-    // `;
+
+    const idToGetSchedule = degreeToRotate * 10;
 
     const sv = `
-        <svg viewBox="0 0 36 36" class="circular-chart toER${arrayRGB[0]}${arrayRGB[1]}">
+        <svg viewBox="0 0 36 36" class="circular-chart toER${arrayRGB[0]}${arrayRGB[1]}" id=A${idToGetSchedule}>
           <path class="circle" d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831" />
@@ -177,6 +194,74 @@ const toEraseOneItem = (e) => {
 
 document.addEventListener('click', toEraseOneItem);
 
+const mouths = {
+  1: 'Janeiro',
+  2: 'Fevereiro',
+  3: 'Março',
+  4: 'Abril',
+  5: 'Maio',
+  6: 'Junho',
+  7: 'Julho',
+  8: 'Agosto',
+  9: 'Setembro',
+  10: 'Outubro',
+  11: 'Novembro',
+  12: 'Dezembro',
+}
+
+const getAngleOfHour = () => {
+  const actualAngleOfPointer = document.querySelector('#hr').style.transform;
+  // console.log(actualAngleOfPointer)
+  const angle = actualAngleOfPointer.match(/([0-9])?([0-9][0-9])(\.([0-9]))?/);
+  return angle[0];
+  // console.log(angle)
+};
+
+const alertToClasse = () => {
+  const hourAngle = getAngleOfHour();
+  const arrayOfSchedules = getSchedulesSVG();
+
+  const haveSchedule = arrayOfSchedules.find((schedule) => schedule === hourAngle);
+  //console.log(haveSchedule);
+  if (haveSchedule) {
+    const toUseOnQuery = haveSchedule * 10;
+
+    const messageToNofification = document.querySelectorAll(`#A${toUseOnQuery}`)[0].innerText;
+
+    var notification = new Notification(messageToNofification);
+  }
+};
+
+function notifyMe() {
+  // Verifica se o browser suporta notificações
+  if (!("Notification" in window)) {
+    alert("Este browser não suporta notificações de Desktop");
+  }
+
+  // Let's check whether notification permissions have already been granted
+  else if (Notification.permission === "granted") {
+    // If it's okay let's create a notification
+    var notification = new Notification("Kombi");
+  }
+
+  // Otherwise, we need to ask the user for permission
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        var notification = new Notification("Hi there!");
+      }
+    });
+  }
+
+  // At last, if the user has denied notifications, and you
+  // want to be respectful there is no need to bother them any more.
+}
+
+setInterval(() => {
+  alertToClasse();
+}, 60000)
+
 setInterval(() => {
   const hr = document.querySelector('#hr');
   const mn = document.querySelector('#mn');
@@ -188,14 +273,19 @@ setInterval(() => {
   let year = day.getFullYear();
   let dateInPage = Number(dateComplete.innerText.substring(0, 2));
   if (actualDay !== dateInPage) {
-    dateComplete.innerText = `${actualDay}/${mouth}/${year}`;
+    dateComplete.innerText = `${actualDay} de ${mouths[mouth]} de ${year}`;
   }
   let hh = day.getHours() * 30;
   let mm = day.getMinutes() * 6;
   let ss = day.getSeconds() * 6;
+  if (hh > 360) hh -= 360;
   hr.style.transform = `rotateZ(${hh + (mm / 12)}deg)`;
   mn.style.transform = `rotateZ(${mm}deg)`;
   sc.style.transform = `rotateZ(${ss}deg)`;
+
+  // alertToClasse();
+  //console.log(getAngleOfHour())
+
 }, 1000);
 
 const recoverSchedulesOnLocalStorage = () => {
@@ -213,4 +303,7 @@ const recoverSchedulesOnLocalStorage = () => {
 
 window.onload = function () {
   recoverSchedulesOnLocalStorage();
+  // alertToClasse();
+  notifyMe();
+
 };

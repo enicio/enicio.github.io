@@ -32,7 +32,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 8px solid rgb(255, 255, 255);
+  border: 8px solid transparent;
   border-radius: 50%;
   margin-top: 5px;
   background: url(./Ios_clock.svg) no-repeat ;
@@ -120,6 +120,12 @@ h3 {
 
 h3 {
   margin: 14px;
+}
+
+#date {
+  font-size: large;
+  padding: 2px;
+  margin: 15px;
 }
 
 .form {
@@ -291,6 +297,12 @@ svg {
 
 .textarea input {
   margin: 5px;
+}
+
+#schedulesText {
+  padding: 7px;
+  border-radius: 15px;
+  height: 45vh;
 }
 
 .glyphicon-remove:before {
