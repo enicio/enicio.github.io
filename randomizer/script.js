@@ -1,5 +1,5 @@
 function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (Number(max) - Number(min) + 1) + Number(min));
 }
 
 const createRandomNumbers = (min, max) => {
@@ -7,7 +7,7 @@ const createRandomNumbers = (min, max) => {
   const range = max - min + 1
 
   while (randomNumbers.size < range) {
-    randomNumbers.add(~~(Math.random() * range))
+    randomNumbers.add(Math.floor(Math.random() * range))
   }
   return [...randomNumbers]
 }
@@ -41,18 +41,22 @@ const checkDuplicity = (arraypal) => {
   const stringsWithSpaceRemoved = removeSpaceOnString(arraypal);
 
   const newArrayWithUniqueElements = stringsWithSpaceRemoved.filter((element, index) => {
-    console.log(stringsWithSpaceRemoved.indexOf(element), index)
     return stringsWithSpaceRemoved.indexOf(element) === index;
   });
   return newArrayWithUniqueElements;
 }
 
+function checkEmptyElement(itensOnArray) {
+  const newArrayWithOutEmptyElements = itensOnArray.filter((element) => element !== '');
+  return newArrayWithOutEmptyElements;
+}
 
 const randomizer = () => {
   const contentText = document.querySelector('#w3review').value;
   const itensOnArray = contentText.split('\n');
 
-  const newArrayWithOutDuplicity = checkDuplicity(itensOnArray)
+  const newArrayWithOutEmpyElement = checkEmptyElement(itensOnArray);
+  const newArrayWithOutDuplicity = checkDuplicity(newArrayWithOutEmpyElement)
 
   const arrayWithRandomicNumbers = createRandomNumbers(0, newArrayWithOutDuplicity.length - 1);
   const contentTextRandomized = arrayWithRandomicNumbers.map((number) => {
@@ -61,6 +65,24 @@ const randomizer = () => {
   createList(contentTextRandomized);
 }
 
+function generateRandomNumber() {
+  const fisrtNumber = document.querySelector('#firstNumber').value;
+  const secondNumber = document.querySelector('#secondNumber').value;
+  console.log(Number.isInteger(parseInt(fisrtNumber)))
+
+  if (!Number.isInteger(parseInt(fisrtNumber)) || !Number.isInteger(parseInt(secondNumber))) {
+    alert('Entre somente com números inteiros.')
+  } else {
+    const randomNumber = getRndInteger(fisrtNumber, secondNumber);
+
+    document.querySelector('.outputNumber').innerText = '';
+    document.querySelector('.outputNumber').innerText = randomNumber;
+  }
+};
 
 const randomizerButton = document.querySelector('#submit');
 randomizerButton.addEventListener('click', randomizer);
+
+const generateRandomNumberButton = document.querySelector('.aleatory-number input[value=Gerar]');
+generateRandomNumberButton.addEventListener('click', generateRandomNumber)
+
