@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
   <head>
     <meta charset="UTF-8">
@@ -9,15 +9,32 @@
   </head>
 
   <body>
-    <h1>Um randomizador para chamar de nosso</h1>
+    <h1>[CBD]randomizer</h1>
+    <h3>Um randomizador para chamar de nosso</h3>
     <h6>E talvez o Lugh não reclamar</h6>
-    <form>
-      <label for="w3review">Entre com a lista de itens que deseja ter uma saida aleatória</label>
-      <textarea id="w3review" name="w3review" rows="30" cols="50">
-      </textarea>
-    </form>
-    <input id="submit" type="button" value="Randomize">
-    <div class="output">
+    <div>
+      <section class="aleatory-number">
+        <div class="outputRandomNumers">
+          <div class="inputNumbers">
+            <input id="firstNumber" type="text">
+            <input id="secondNumber" type="text">
+          </div>
+          <div class="outputNumberField">
+            <span class="outputNumber"></span>
+          </div>
+        </div>
+        <input type="button" value="Gerar">
+      </section>
+      <section class="text-area">
+        <form>
+          <label for="w3review">Entre com a lista de itens que deseja ter uma saida aleatória</label>
+          <textarea id="w3review" name="w3review" rows="30" cols="50">
+          </textarea>
+        </form>
+        <input id="submit" type="button" value="Randomize">
+      </section>
+      <div class="output">
+      </div>
     </div>
   </body>
   <script src="./script.js"></script>
