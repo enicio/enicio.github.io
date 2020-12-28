@@ -1,46 +1,37 @@
-h1, h3 {
-  display: flex;
-  align-content: center;
-  margin: auto;
-  margin-left: 25vw;
-  align-items: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
-h6 {
-  color: rgb(207, 206, 206);
-  display: flex;
-  align-content: center;
-  margin: auto;
-  margin-left: 25vw;
-  align-items: center;
-  padding: 10px;
-}
-
-form {
+body {
   display: flex;
   flex-direction: column;
 }
 
-form label {
-  width: 30vw;
-  /* max-width: 300px; */
-  margin: auto;
+.title {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+  margin-top: 10px;
   margin-bottom: 30px;
+}
+
+.title h1, h3 {
+  margin: auto;
+}
+.title h1 span {
+  color: rgb(245, 167, 0);
+}
+
+.title h1 {
+  color:  bisque;
+}
+
+.title h3 {
+  color: rgb(160, 160, 160);
   text-align: center;
 }
 
-form textarea {
-  width: 40vw;
-  max-width: 300px;
-  min-width: 200px;
+h6 {
+  color: rgb(207, 206, 206);
   margin: auto;
-  margin-bottom: 30px;
-}
-
-input {
-  display: flex;
-  margin: auto;
-  padding: 2px;
 }
 
 .aleatory-number {
@@ -51,7 +42,7 @@ input {
 
 .outputRandomNumers {
   border-radius: 8px 8px 8px 8px;
-    width: 254px;
+    width: 128px;
     display: flex;
     align-items: center;
     background: bisque;
@@ -64,30 +55,83 @@ input {
 
 .outputNumberField {
   padding: 5px 10px;
-  display: flex;
   width: 50px;
   height: 50px;
-  align-items: center;
-  /* margin: 5px; */
   background: rgb(245, 167, 0);
   border-radius:  0 8px 8px 0;
 }
 
 .outputNumberField span {
   color: rgb(255, 255, 255);
-  font-size: 50px;
+  font-size: 38px;
   font-weight: 800;
-  /* margin-left: 4px; */
+  font-family: 'Nunito', sans-serif;
+  margin: -9px;
 }
 
 .inputNumbers {
   margin: 10px;
 }
 
+.inputNumbers input {
+  width: 35px;
+  border-style: none;
+  text-align: center;
+}
+
 .aleatory-number input[type=button] {
-  color:azure;
-  border-radius: 2px;
+  font-size: larger;
+  width: 65px;
+  color: azure;
+  border-radius: 5px;
   border-style: none;
   margin: 3px auto;
-  background: rgb(245, 167, 0) ;
+  background: rgb(245, 167, 0);
+  height: 30px;
+  font-weight: 400;
+}
+
+.text-area {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.text-area form {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-area form label {
+  margin: auto;
+  margin-bottom: 30px;
+  font-family: 'Nunito', sans-serif;
+  color: rgb(74, 74, 74);
+  text-align: center;
+}
+
+.text-area textarea {
+  max-width: 320px;
+  margin: auto;
+  border-radius: 10px;
+  background: rgb(245, 245, 245);
+}
+
+.text-area input {
+  font-size: larger;
+  width: 120px;
+  color: azure;
+  border-radius: 5px;
+  border-style: none;
+  margin: 10px auto;
+  background: rgb(245, 167, 0);
+  height: 30px;
+  font-weight: 400;
+}
+
+.output {
+  font-family: 'Nunito', sans-serif;
+  font-size: larger;
+  margin: auto;
+  color: rgb(74, 74, 74);
 }
