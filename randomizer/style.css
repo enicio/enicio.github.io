@@ -3,6 +3,7 @@
 body {
   display: flex;
   flex-direction: column;
+  background-color: rgb(255, 246, 247);
 }
 
 .title {
@@ -21,7 +22,7 @@ body {
 }
 
 .title h1 {
-  color:  bisque;
+  color:  #ffca8c;
 }
 
 .title h3 {
