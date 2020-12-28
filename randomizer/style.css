@@ -70,6 +70,8 @@ h6 {
 }
 
 .inputNumbers {
+  display: flex;
+  flex-direction: column;
   margin: 10px;
 }
 
@@ -77,11 +79,25 @@ h6 {
   width: 35px;
   border-style: none;
   text-align: center;
+  color: rgb(74, 74, 74);
 }
+
+.inputNumbers label {
+  width: 30px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+  color: rgb(74, 74, 74);
+}
+
 
 .aleatory-number input[type=button] {
   font-size: larger;
-  width: 65px;
+  width: 75px;
   color: azure;
   border-radius: 5px;
   border-style: none;
