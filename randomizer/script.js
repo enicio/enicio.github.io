@@ -83,6 +83,6 @@ function generateRandomNumber() {
 const randomizerButton = document.querySelector('#submit');
 randomizerButton.addEventListener('click', randomizer);
 
-const generateRandomNumberButton = document.querySelector('.aleatory-number input[value=Gerar]');
+const generateRandomNumberButton = document.querySelector('.aleatory-number input[value=Sortear]');
 generateRandomNumberButton.addEventListener('click', generateRandomNumber)
 
