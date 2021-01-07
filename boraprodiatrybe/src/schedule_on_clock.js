@@ -105,7 +105,7 @@ function createLI(initialHourSeparated, finalHourSeparated, schedule, arrayRGB) 
 
   scheduleOnLi.innerHTML = `${initialHourSeparated[0]}:${initialHourSeparated[1]} ate
                             ${finalHourSeparated[0]}:${finalHourSeparated[1]}`;
-  scheduleOnLi.style.background = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]},0.40)`;;
+  scheduleOnLi.style.background = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]},0.60)`;;
   scheduleOnLi.setAttribute('class', 'schedule');
   li.appendChild(scheduleOnLi);
 
@@ -119,7 +119,7 @@ function createLI(initialHourSeparated, finalHourSeparated, schedule, arrayRGB) 
 
   li.style.background = `rgb(245, 245, 245)`;
   li.setAttribute('class', `toER${arrayRGB[0]}${arrayRGB[1]}`);
-  li.setAttribute('style', `box-shadow: 0px 2px 0px rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]},0.40)`);
+  li.setAttribute('style', `box-shadow: 0px 2px 0px rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]},0.60)`);
   li.setAttribute('id', `A${idToGetSchedule}`);
   ol.appendChild(li);
 
