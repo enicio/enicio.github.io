@@ -8,7 +8,6 @@ function showOrNotDeleteAllButton() {
 
 function checkli() {
   const quantityOfLi = document.querySelectorAll('li').length;
-  debugger
   if(quantityOfLi > 1 ) {
     document.querySelector('.deleteAllSchedules').classList.remove("visible");
     return;
