@@ -4,7 +4,6 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./styles/clock.css">
     <link rel="stylesheet" href="./styles/svg.css">
     <title>Agenda</title>
@@ -45,6 +44,9 @@
       </section>
       <section class="visuais">
         <section class="todolist">
+          <div class="deleteAllSchedules visible">
+            <span> Apagar todos<img id="deleteAllSchedule" src="../images/close-circle.svg" alt=""></span>
+          </div>
           <div class="lists">
             <ol class="list">
             </ol>
@@ -73,8 +75,8 @@
       </section>
     </section>
     <script src="./data/data.js"></script>
-    <script src="./src/clock.js"></script>
     <script src="./src/schedule_on_clock.js"></script>
+    <script src="./src/clock.js"></script>
     <script src="./src/schedule_text_area.js"></script>
   </body>
 

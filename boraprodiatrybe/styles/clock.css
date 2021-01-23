@@ -256,6 +256,30 @@ li .task {
   content: url(../images/close-circle.svg) ;
 }
 
+.deleteAllSchedules {
+  color: dimgray;
+  padding: 3px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+.deleteAllSchedules span {
+  margin-left: auto;
+  padding: 3px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
+.deleteAllSchedules span img {
+  margin-left: 3px;
+}
+
+.visible {
+  visibility: hidden;
+}
+
+
 @media (max-width: 760px) {
 
   .visuais {

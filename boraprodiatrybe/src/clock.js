@@ -2,15 +2,14 @@ setInterval(() => {
   setClock();
 }, 1000);
 
-setInterval(() => {
-  alertToClasse();
-}, 60000)
+setInterval(alertToClasse, 10000)
 
 function setClock() {
   const hr = document.querySelector('#hourHand');
   const mn = document.querySelector('#minuteHand');
   const sc = document.querySelector('#secondHand');
   const fieldsOfDate = [...document.querySelector('.date').children]
+  // log(fieldsOfDate)
   const digitalDate = document.querySelector('.digitalClock span');
 
   let date = new Date();
@@ -26,9 +25,9 @@ function setClock() {
   if (Number(fieldsOfDate[1].innerText) !== actualDay) {
     setDateOnClock(fieldsOfDate, dayOfWeek, actualDay, mouth, year);
   }
+
   setDigitalClock(digitalDate, hh, mm);
   sethandsPositionOnClock(hh, mm, ss, hr, mn, sc);
-
 };
 
 function sethandsPositionOnClock(hh, mm, ss, hr, mn, sc) {
