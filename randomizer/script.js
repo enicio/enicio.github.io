@@ -37,7 +37,6 @@ const removeSpaceOnString = (arraypal) => {
   return stringsWithSpaceRemoved;
 };
 const checkDuplicity = (arraypal) => {
-
   const stringsWithSpaceRemoved = removeSpaceOnString(arraypal);
 
   const newArrayWithUniqueElements = stringsWithSpaceRemoved.filter((element, index) => {
@@ -68,7 +67,6 @@ const randomizer = () => {
 function generateRandomNumber() {
   const fisrtNumber = document.querySelector('#firstNumber').value;
   const secondNumber = document.querySelector('#secondNumber').value;
-  console.log(Number.isInteger(parseInt(fisrtNumber)))
 
   if (!Number.isInteger(parseInt(fisrtNumber)) || !Number.isInteger(parseInt(secondNumber))) {
     alert('Entre somente com números inteiros.')
