@@ -2,16 +2,13 @@ const schedulesTrybe = document.querySelector('#submit');
 schedulesTrybe.addEventListener('click', () => {
   const contentText = document.querySelector('#schedulesText').value;
   const arrayOfLinesOnTextArea = contentText.split('\n');
-
   // console.log(arrayOfLinesOnTextArea)
-
   const linesByHour = arrayOfLinesOnTextArea.map((line) => {
     // console.log(line);
     // const hour = line.toString().match(/(0[0-9]|1[0-9]|2[0-9])h([0-9])\w+/);
     const hour = line.toString().match(/(0[0-9]|1[0-9]|2[0-9])h([0-9]|([ ]))\w+/);
     if (hour !== null) return hour;
   });
-
 
   let arrayHorarios = [];
 
@@ -34,5 +31,6 @@ schedulesTrybe.addEventListener('click', () => {
 
     createSchedulesOnClock(initialHourSeparated, finalHourSeparated, svg, arrayRGB)
   });
+  checkli()
   saveToLocalStorage()
 });

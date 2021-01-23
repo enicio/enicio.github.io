@@ -2,6 +2,29 @@ function log(ops) {
   console.log(ops);
 }
 
+function showOrNotDeleteAllButton() {
+  document.querySelector('.deleteAllSchedules').classList.add("visible")
+}
+
+function checkli() {
+  const quantityOfLi = document.querySelectorAll('li').length;
+  debugger
+  if(quantityOfLi > 1 ) {
+    document.querySelector('.deleteAllSchedules').classList.remove("visible");
+    return;
+  }
+  document.querySelector('.deleteAllSchedules').classList.add("visible");
+}
+
+function removeAll(e) {
+  if(e.target.id === "deleteAllSchedule") {
+    document.querySelectorAll('li').forEach(eachLi => eachLi.remove());
+    document.querySelectorAll('svg').forEach(eachSvg => eachSvg.remove());
+    showOrNotDeleteAllButton()
+    saveToLocalStorage();
+  }
+}
+
 function saveToLocalStorage() {
   const svgs = document.querySelector('.svgonclock');
   const lists = document.querySelector('.list');
@@ -19,11 +42,12 @@ function toEraseOneItem(e) {
     elementsToErase.forEach((element) => {
       element.remove();
     });
+    checkli()
     saveToLocalStorage()
   }
 };
 
-function recoverSchedulesOnLocalStorage() {
+function recoverSchedulesFromLocalStorage() {
   const listOnLocalStorage = JSON.parse(localStorage.getItem('listTrybe'));
   const listOPS = document.querySelector('.list');
   const listRec = listOnLocalStorage;
@@ -65,14 +89,11 @@ function createSchedulesOnClock(initialHourSeparated, finalHourSeparated, svg, a
   const svgonclock = document.querySelector('.svgonclock');
   svgonclock.innerHTML += svg;
 
-  // if (degreeToRotate > 360) degreeToRotate = degreeToRotate - 360;
-
   console.log(finalHourToMinutes)
 
   svgonclock.lastElementChild.style.transform = `rotate(${degreeToRotate}deg)`;
   svgonclock.lastElementChild.style.strokeDasharray = `${durationOfSchedule} , 100`;
   svgonclock.lastElementChild.lastElementChild.style.stroke = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]},0.40)`
-
 }
 
 function generateId(initialHourSeparated) {
@@ -87,20 +108,17 @@ function cleanFields() {
 }
 
 function createLI(initialHourSeparated, finalHourSeparated, schedule, arrayRGB) {
-
-  const ops = parseInt(initialHourSeparated[1]);
-  if (isNaN(ops)) {
+  const addZeroWhenNotHaveZeroInHourPosted = parseInt(initialHourSeparated[1]);
+  if (isNaN(addZeroWhenNotHaveZeroInHourPosted)) {
     initialHourSeparated[1] = '00';
   };
 
-  // if (initialHourSeparated[0] > 12) degreeToRotate -= 360;
   const idToGetSchedule = generateId(initialHourSeparated);
 
   const ol = document.querySelector('.list');
   const li = document.createElement('LI');
   const scheduleOnLi = document.createElement('span');
   const task = document.createElement('span');
-  // const img = document.createElement('IMG')
   const deleteIcon = document.createElement('span');
 
   scheduleOnLi.innerHTML = `${initialHourSeparated[0]}:${initialHourSeparated[1]} ate
@@ -108,7 +126,6 @@ function createLI(initialHourSeparated, finalHourSeparated, schedule, arrayRGB) 
   scheduleOnLi.style.background = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]},0.60)`;;
   scheduleOnLi.setAttribute('class', 'schedule');
   li.appendChild(scheduleOnLi);
-
 
   task.innerHTML = `${schedule}`;
   task.setAttribute('class', 'task')
@@ -123,6 +140,7 @@ function createLI(initialHourSeparated, finalHourSeparated, schedule, arrayRGB) 
   li.setAttribute('id', `A${idToGetSchedule}`);
   ol.appendChild(li);
 
+  checkli()
   cleanFields();
 };
 
@@ -191,13 +209,11 @@ function notifyMe() {
   if (!("Notification" in window)) {
     alert("Este browser não suporta notificações de Desktop");
   }
-
   // Let's check whether notification permissions have already been granted
   else if (Notification.permission === "granted") {
     // If it's okay let's create a notification
     var notification = new Notification("Kombi");
   }
-
   // Otherwise, we need to ask the user for permission
   else if (Notification.permission !== 'denied') {
     Notification.requestPermission(function (permission) {
@@ -207,21 +223,20 @@ function notifyMe() {
       }
     });
   }
-
   // At last, if the user has denied notifications, and you
   // want to be respectful there is no need to bother them any more.
 }
 
-
-
 document.addEventListener('click', toEraseOneItem);
+document.addEventListener('click', removeAll)
 
 const buttonCreateSchedule = document.querySelector('#createSchedule');
 buttonCreateSchedule.addEventListener('click', createSchedules);
 
 window.onload = function () {
   setClock()
-  recoverSchedulesOnLocalStorage();
+  recoverSchedulesFromLocalStorage();
   alertToClasse();
+  checkli()
   notifyMe();
 };
