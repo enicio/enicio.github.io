@@ -4,7 +4,7 @@ setInterval(() => {
 
 setInterval(() => {
   alertToClasse();
-}, 10000)
+}, 60000)
 
 function setClock() {
   const hr = document.querySelector('#hourHand');
