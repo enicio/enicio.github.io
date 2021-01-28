@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "test": "jest --env node --detectOpenHandles"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,10 @@
     "googleapis": "^39.2.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "@types/jest": "^26.0.20",
+    "@types/supertest": "^2.0.10",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
   }
 }
