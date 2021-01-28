@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,500;0,700;1,300&display=swap');
 
+:root {
+  --primary-color:  rgb(252, 185, 40);
+  --text-color: dimgray;
+}
+
 body{
   margin: 0;
   padding: 0;
@@ -279,6 +284,23 @@ li .task {
   visibility: hidden;
 }
 
+.google-calendar-button {
+  background-color:  var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--text-color);
+  font-weight: bold;
+  outline: none;
+}
+
+.google-calendar-button:hover {
+  opacity: 0.8;
+  transition: 100ms;
+}
+.google-calendar-button:active {
+  padding: 10px;
+}
 
 @media (max-width: 760px) {
 
