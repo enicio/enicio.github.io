@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <button id="signinButton">Login com o Google</button>
     <header>
       <h1>Bora pro dia Trybers!!</h1>
       <h3>Cadastre os horários do dia de hoje!</h3>
@@ -75,10 +76,15 @@
         </section>
       </section>
     </section>
+    <script src="./src/environments.js"></script>
     <script src="./data/data.js"></script>
     <script src="./src/schedule_on_clock.js"></script>
     <script src="./src/clock.js"></script>
     <script src="./src/schedule_text_area.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer>
+    </script>
+    <script src="./src/google_social_login.js"></script>
+    <script src="./src/google_calendar.js"></script>
   </body>
 
 </html>

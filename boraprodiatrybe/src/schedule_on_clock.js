@@ -232,7 +232,8 @@ function addEvents() {
 }
 
 function addEventsToGoogleCalendar() {
-  console.log('adicionando eventos');
+  const events = getEventsFromList();
+  sendEventsToApi(events);
 }
 
 document.addEventListener('click', toEraseOneItem);
