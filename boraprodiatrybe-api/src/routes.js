@@ -23,7 +23,7 @@ router.post('/social-login', async (req, res) => {
   return res.status(200).json({ ...user, credentials: undefined });
 });
 
-router.get('/client-id', (res) => {
+router.get('/client-id', (_, res) => {
   res.json({ client_id: environments.CLIENT_ID });
 });
 
