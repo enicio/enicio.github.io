@@ -226,6 +226,16 @@ function notifyMe() {
   // want to be respectful there is no need to bother them any more.
 }
 
+function addEvents() {
+  const googleCalendarButton = document.querySelector('button.google-calendar-button');
+  googleCalendarButton.addEventListener('click', addEventsToGoogleCalendar);
+}
+
+function addEventsToGoogleCalendar() {
+  const events = getEventsFromList();
+  sendEventsToApi(events);
+}
+
 document.addEventListener('click', toEraseOneItem);
 document.addEventListener('click', removeAll)
 
@@ -233,6 +243,7 @@ const buttonCreateSchedule = document.querySelector('#createSchedule');
 buttonCreateSchedule.addEventListener('click', createSchedules);
 
 window.onload = function () {
+  addEvents();
   setClock()
   recoverSchedulesFromLocalStorage();
   alertToClasse();
